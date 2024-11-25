@@ -52,14 +52,13 @@ void TLB(void){
     for(i=0; i<=mv; i++){
         tlb[i]=my[y];
     }
+    printf("\t\tAgora chegamos a parte final voce esta agora na memoria principal:\n");
+    printf("\t\tComo ela e menor que a MV ou cache, voce precisa digitar os enderecos e parte disso sera carregado ate a nossa MP\n");
+    printf("\t\tVoce pode no maximo chamar ate 20 paginas para a no mp\n");
     MP();
 }
 
 void MP(void){
-    printf("\t\tAgora chegamos a parte final voce esta agora na memoria principal:\n");
-    printf("\t\tComo ela e menor que a MV ou cache, voce precisa digitar os enderecos e parte disso sera carregado ate a nossa MP\n");
-    printf("\t\tVoce pode no maximo chamar ate 20 paginas para a no mp\n");
-    do{
         printf("\t\tDigite o numero da pagina\n");
         scanf("%d", &d);
         if(d>mv){
@@ -86,5 +85,7 @@ void MP(void){
         printf("\t\tDigite 's' para sim e 'n' para nao\n");
         fflush(stdin);
         scanf("%c", &c);
-    }while((c=='s')&&(u<=20));
+        if(c=='s')&&(u<=20){
+            MP();
+        }
 }
