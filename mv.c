@@ -34,8 +34,8 @@ void paginacao(void){
     }
     printf("\t\tAgora o numero que foi inserido representa o numero de paginas criadas na MV\n");
     printf("\t\tCada pagina ocupa 4k bits então se voce digitou 16 kbits entao o numero de paginas sera 4");
-    printf("\t\tEssas paginas são uma ilusão do tamanho da memoria principal\n");
-    printf("\t\tElas são então enderecadas aos blocos na memoria principal\n");
+    printf("\t\tEssas paginas são uma ilusao do tamanho da memoria principal\n");
+    printf("\t\tElas sao entao enderecadas aos blocos na memoria principal\n");
     printf("\t\tNao sao todos os blocos que são preenchidos pelas paginas da MV na MP\n");
     printf("\t\tPor exemplo esse e o numero de paginas que voce digitou:\n");
     y=0;
@@ -59,11 +59,11 @@ void MP(void){
     printf("\t\tAgora chegamos a parte final voce esta agora na memoria principal:\n");
     printf("\t\tComo ela e menor que a MV ou cache, voce precisa digitar os enderecos e parte disso sera carregado ate a nossa MP\n");
     printf("\t\tVoce pode no maximo chamar ate 20 paginas para a no mp\n");
-    while((c=='s')||(u<=20)){
+    do{
         printf("\t\tDigite o numero da pagina\n");
         scanf("%d", &d);
         if(d>mv){
-            printf("\t\tERRO: hit_miss");
+            printf("\t\tERRO: miss\n");
         }
         if(d<=mv){
             printf("\t\tAlocado a pagina na mp\n");
@@ -86,5 +86,5 @@ void MP(void){
         printf("\t\tDigite 's' para sim e 'n' para nao\n");
         fflush(stdin);
         scanf("%c", &c);
-    }
+    }while((c=='s')&&(u<=20));
 }
